@@ -84,9 +84,7 @@ where
         KmlReader::<B, T>::from_xml_reader(quick_xml::Reader::from_reader(r))
     }
 
-    fn from_xml_reader(mut reader: quick_xml::Reader<B>) -> KmlReader<B, T> {
-        reader.trim_text(true);
-        reader.expand_empty_elements(true);
+    fn from_xml_reader(reader: quick_xml::Reader<B>) -> KmlReader<B, T> {
         KmlReader {
             reader,
             buf: Vec::new(),
